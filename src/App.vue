@@ -19,19 +19,25 @@ export default {
     config:[
       {
         key: 'Level',
-        title: 'Level'
+        title: 'Level',
+        sortable: true
+
       },
       {
         key: 'Title',
-        title: 'Title'
+        title: 'Title',
+        sortable: true
+
       },
       {
         key: 'Author',
-        title: 'Author'
+        title: 'Author',
+        sortable: true
       },
       {
         key: 'Available',
-        title: 'Available'
+        title: 'Available',
+        sortable: true
       }
     ]
   }),
