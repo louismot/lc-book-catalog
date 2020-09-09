@@ -6,9 +6,14 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
+        <b-navbar-nav class="ml-5">
 <!--          <b-nav-item href="#">Admin</b-nav-item>-->
-<!--          <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
+          <b-button v-b-modal.signout-book style="background-color: #904bc9; border-color: #904bc9">Book Sign Out Form</b-button>
+          <b-modal id="signout-book" title="Sign Out" ok-title="Enter">
+            <b-form-input v-model="bookTitle" placeholder="Enter The Book's Title:"></b-form-input>
+            <b-form-input v-model="bookAuthor" placeholder="Enter The Author's Name:"></b-form-input>
+            <b-form-input v-model="bookDate" placeholder="Enter Today's Date:"></b-form-input>
+          </b-modal>
         </b-navbar-nav>
 
         <!-- Search bar -->
@@ -23,9 +28,9 @@
             <template v-slot:button-content>
               <em>Teacahers</em>
             </template>
-            <b-dropdown-item v-b-modal.login-prompt>Sign In</b-dropdown-item>
 
-<!--            Login prompt-->
+            <!--            Login prompt-->
+            <b-dropdown-item v-b-modal.login-prompt>Sign In</b-dropdown-item>
             <b-modal id="login-prompt" title="Teacher Login" ok-title="Enter">
               <b-form-input v-model="username" placeholder="Enter Username:"></b-form-input>
               <b-form-input v-model="password" placeholder="Enter Password:"></b-form-input>
@@ -44,7 +49,10 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      bookTitle: '',
+      bookAuthor: '',
+      bookDate: ''
     }
   }
 }
@@ -56,5 +64,6 @@ export default {
 .navbar.navbar-dark.bg-dark{
   background-color: #580078!important;
 }
+
 
 </style>
