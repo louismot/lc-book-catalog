@@ -8,11 +8,20 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-5">
 <!--          <b-nav-item href="#">Admin</b-nav-item>-->
-          <b-button v-b-modal.signout-book style="background-color: #904bc9; border-color: #904bc9">Book Sign Out Form</b-button>
+          <b-button-group>
+            <b-button v-b-modal.select-teacher style="background-color: #904bc9; border-color: white; ">Teacher Select</b-button>
+            <b-button v-b-modal.signout-book style="background-color: #904bc9; border-color: white">Book Sign Out Form</b-button>
+          </b-button-group>
           <b-modal id="signout-book" title="Sign Out" ok-title="Enter">
             <b-form-input v-model="bookTitle" placeholder="Enter The Book's Title:"></b-form-input>
             <b-form-input v-model="bookAuthor" placeholder="Enter The Author's Name:"></b-form-input>
             <b-form-input v-model="bookDate" placeholder="Enter Today's Date:"></b-form-input>
+            <b-form-input v-model="studentName" placeholder="Enter Your First and Last Name:"></b-form-input>
+          </b-modal>
+
+          <b-modal id="select-teacher" title="Select Your Teacher" ok-title="Enter">
+            <b-form-select v-model="selected" :options="options"></b-form-select>
+            <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
           </b-modal>
         </b-navbar-nav>
 
@@ -26,7 +35,7 @@
           <b-nav-item-dropdown right>
             <!--Button for teacher login-->
             <template v-slot:button-content>
-              <em>Teacahers</em>
+              <em>Teachers</em>
             </template>
 
             <!--            Login prompt-->
@@ -52,7 +61,14 @@ export default {
       password: '',
       bookTitle: '',
       bookAuthor: '',
-      bookDate: ''
+      bookDate: '',
+      studentName: '',
+      selected: null,
+      options: [
+        { value: null, text: 'Click to select a teacher...' },
+        { value: 'a', text: 'Miss Criden' },
+        { value: 'b', text: 'second teacher' },
+      ]
     }
   }
 }
@@ -64,6 +80,7 @@ export default {
 .navbar.navbar-dark.bg-dark{
   background-color: #580078!important;
 }
+
 
 
 </style>
