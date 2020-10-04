@@ -33,7 +33,7 @@
 
 <template>
   <div>
-    <b-table striped hover :items="theData" :fields="config"></b-table>
+    <b-table striped hover sticky-header="720px" :items="theData" :fields="config" style="padding-top: 50px;"></b-table>
   </div>
 </template>
 

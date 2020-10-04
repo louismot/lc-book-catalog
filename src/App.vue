@@ -2,17 +2,19 @@
   <div id="app">
 
     <Table v-if="tableData" :theData = "tableData" :config="config"/>
-
+    <Navbar/>
   </div>
 </template>
 
 <script>
  import Table from "./components/Table";
+ import Navbar from "./components/Navbar";
 
 export default {
   name: 'App',
   components: {
-    Table
+    Table,
+    Navbar
   },
   data: () => ({
     tableData: undefined,
